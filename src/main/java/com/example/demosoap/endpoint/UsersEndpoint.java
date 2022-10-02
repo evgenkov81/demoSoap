@@ -1,7 +1,8 @@
-package com.example.demosoap.endpoints;
+package com.example.demosoap.endpoint;
 
-import com.example.demosoap.model.Error;
-import com.example.demosoap.model.*;
+import com.example.demosoap.model.User;
+import com.example.demosoap.error.Errors;
+import com.example.demosoap.dto.*;
 import com.example.demosoap.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -31,7 +32,7 @@ public class UsersEndpoint {
     public OperationResponse createNewUser(@RequestPayload CreateNewUserRequest request) {
         if (usersRepository.findById(request.getUser().getLogin()).isPresent()) {
             return new OperationResponse(false,
-                    new Error(Collections.singletonList("User with this login already exists")));
+                    new Errors(Collections.singletonList("User with this login already exists")));
         }
 
         usersRepository.save(request.getUser());
@@ -45,7 +46,7 @@ public class UsersEndpoint {
 
         if (foundedUser == null) {
             return new OperationResponse(false,
-                    new Error(Collections.singletonList("User with this login not exists")));
+                    new Errors(Collections.singletonList("User with this login not exists")));
         }
 
         foundedUser.setName(request.getUser().getName());
@@ -61,7 +62,7 @@ public class UsersEndpoint {
     public OperationResponse removeUser(@RequestPayload RemoveUserRequest request) {
         if (!usersRepository.findById(request.getLogin()).isPresent()) {
             return new OperationResponse(false,
-                    new Error(Collections.singletonList("User with this login not exists")));
+                    new Errors(Collections.singletonList("User with this login not exists")));
         }
 
         usersRepository.deleteById(request.getLogin());

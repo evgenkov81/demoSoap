@@ -6,7 +6,9 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
+
+import com.example.demosoap.model.User;
 
 import javax.xml.bind.annotation.*;
 
@@ -33,7 +35,7 @@ import javax.xml.bind.annotation.*;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "user_dto", propOrder = {
+@XmlType(name = "userDto", propOrder = {
     "login",
     "name",
     "password"
@@ -52,8 +54,7 @@ public class UserDto {
     public UserDto(User user) {
         this.login = user.getLogin();
         this.name = user.getName();
-        this.password = user.getPassword();
-    }
+          }
 
     /**
      * Gets the value of the login property.

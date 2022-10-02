@@ -1,7 +1,7 @@
-package com.example.demosoap.config;
+package com.example.demosoap.service;
 
-import com.example.demosoap.model.Error;
-import com.example.demosoap.model.OperationResponse;
+import com.example.demosoap.error.Errors;
+import com.example.demosoap.dto.OperationResponse;
 import org.springframework.ws.context.MessageContext;
 import org.springframework.ws.soap.SoapBody;
 import org.springframework.ws.soap.SoapMessage;
@@ -43,13 +43,13 @@ public class CustomValidationInterceptor extends PayloadValidatingInterceptor {
             try {
                 jaxbContext = JAXBContext.newInstance(OperationResponse.class);
                 operationResponse = new OperationResponse(false,
-                        new Error(Arrays.stream(errors)
+                        new Errors(Arrays.stream(errors)
                                 .map(SAXException::getMessage)
                                 .collect(Collectors.toList())));
 
                 jaxbContext.createMarshaller().marshal(operationResponse, stringWriter);
             } catch (Exception e) {
-                logger.error("Error marshalling error response: " + e.getMessage());
+                logger.error("Errors marshalling error response: " + e.getMessage());
             }
 
             Source source = new StreamSource(new StringReader(stringWriter.toString()));

@@ -6,7 +6,9 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
+
+import com.example.demosoap.model.User;
 
 import javax.xml.bind.annotation.*;
 
@@ -21,7 +23,7 @@ import javax.xml.bind.annotation.*;
  *   &lt;complexContent>
  *     &lt;restriction base="{<a href="http://www.w3.org/2001/XMLSchema">...</a>}anyType">
  *       &lt;sequence>
- *         &lt;element name="login" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="user" type="{http://exemple.com/demoSoap}user"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -32,37 +34,36 @@ import javax.xml.bind.annotation.*;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "login"
+        "user"
 })
-@XmlRootElement(name = "removeUserRequest")
-public class RemoveUserRequest {
+@XmlRootElement(name = "editUserRequest")
+public class EditUserRequest {
 
     @XmlElement(required = true)
-    protected String login;
+    protected User user;
 
     /**
-     * Gets the value of the login property.
+     * Gets the value of the user property.
      *
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link User }
      *
      */
-    public String getLogin() {
-        return login;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * Sets the value of the login property.
+     * Sets the value of the user property.
      *
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link User }
      *
      */
-    public void setLogin(String value) {
-        this.login = value;
+    public void setUser(User value) {
+        this.user = value;
     }
 
 }
-

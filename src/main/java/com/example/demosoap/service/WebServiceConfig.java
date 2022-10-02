@@ -1,4 +1,4 @@
-package com.example.demosoap.config;
+package com.example.demosoap.service;
 
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;

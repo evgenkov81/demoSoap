@@ -6,7 +6,9 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
+
+import com.example.demosoap.error.Errors;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -43,7 +45,7 @@ import javax.xml.bind.annotation.XmlType;
 public class OperationResponse {
 
     protected boolean success;
-    protected Error errors;
+    protected Errors errors;
 
     public OperationResponse() {}
 
@@ -51,7 +53,7 @@ public class OperationResponse {
         this.success = success;
     }
 
-    public OperationResponse(boolean success, Error errors) {
+    public OperationResponse(boolean success, Errors errors) {
         this.success = success;
         this.errors = errors;
     }
@@ -77,10 +79,10 @@ public class OperationResponse {
      *
      * @return
      *     possible object is
-     *     {@link Error }
+     *     {@link Errors }
      *
      */
-    public Error getErrors() {
+    public Errors getErrors() {
         return errors;
     }
 
@@ -89,10 +91,10 @@ public class OperationResponse {
      *
      * @param value
      *     allowed object is
-     *     {@link Error }
+     *     {@link Errors }
      *
      */
-    public void setErrors(Error value) {
+    public void setErrors(Errors value) {
         this.errors = value;
     }
 

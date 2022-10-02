@@ -6,10 +6,12 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
+
+import com.example.demosoap.model.Role;
+import com.example.demosoap.model.User;
 
 import javax.xml.bind.annotation.XmlRegistry;
-import java.util.Collections;
 
 
 /**
@@ -21,7 +23,7 @@ import java.util.Collections;
  * for XML content. The Java representation of XML 
  * content can consist of schema derived interfaces 
  * and classes representing the binding of schema 
- * type definitions, element declarations and model 
+ * type definitions, element declarations and dto
  * groups.  Factory methods for each of these are 
  * provided in this class.
  * 

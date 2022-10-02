@@ -31,7 +31,7 @@
     <xs:element name="getUsersResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="users" type="tns:user_dto" maxOccurs="unbounded"/>
+                <xs:element name="users" type="tns:userDto" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -56,12 +56,12 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="success" type="xs:boolean"/>
-                <xs:element name="errors" type="tns:error" minOccurs="0"/>
+                <xs:element name="error" type="tns:errors" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="user_dto">
+    <xs:complexType name="userDto">
         <xs:sequence>
             <xs:element name="login" type="xs:string"/>
             <xs:element name="name" type="xs:string"/>
@@ -85,7 +85,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="error">
+    <xs:complexType name="errors">
         <xs:sequence>
             <xs:element name="error" type="xs:string" maxOccurs="unbounded"/>
         </xs:sequence>

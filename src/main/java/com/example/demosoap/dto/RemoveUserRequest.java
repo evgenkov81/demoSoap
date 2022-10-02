@@ -6,7 +6,7 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
 
 import javax.xml.bind.annotation.*;
 
@@ -34,8 +34,8 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "", propOrder = {
         "login"
 })
-@XmlRootElement(name = "getUserRequest")
-public class GetUserRequest {
+@XmlRootElement(name = "removeUserRequest")
+public class RemoveUserRequest {
 
     @XmlElement(required = true)
     protected String login;
@@ -65,3 +65,4 @@ public class GetUserRequest {
     }
 
 }
+

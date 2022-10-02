@@ -12,7 +12,6 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
-import java.util.Collection;
 
 
 /**
@@ -42,6 +41,9 @@ import java.util.Collection;
         "name"
 })
 @Entity(name = "roles")
+@NamedQueries({
+        @NamedQuery(name = "Role.findAll", query = "select r from roles r")
+})
 public class Role {
 
 
@@ -82,8 +84,6 @@ public class Role {
         this.name = value;
     }
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
 
     public Long getId() {
         return id;
@@ -93,11 +93,5 @@ public class Role {
         this.id = id;
     }
 
-    public Collection<User> getUsers() {
-        return users;
-    }
 
-    public void setUsers(Collection<User> users) {
-        this.users = users;
-    }
 }

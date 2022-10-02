@@ -6,69 +6,77 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.error;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * <p>Java class for anonymous complex type.
- *
+ * <p>Java class for error complex type.
+ * 
  * <p>The following schema fragment specifies the expected content contained within this class.
- *
+ * 
  * <pre>
- * &lt;complexType>
+ * &lt;complexType name="error">
  *   &lt;complexContent>
- *     &lt;restriction base="{<a href="http://www.w3.org/2001/XMLSchema">...</a>}anyType">
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="users" type="{http://exemple.com/demoSoap}user_dto" maxOccurs="unbounded"/>
+ *         &lt;element name="error" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-        "users"
+@XmlType(name = "error", propOrder = {
+        "error"
 })
-@XmlRootElement(name = "getUsersResponse")
-public class GetUsersResponse {
+public class Errors {
 
     @XmlElement(required = true)
-    protected List<UserDto> users;
+    protected List<String> error;
+
+    public Errors() {}
+
+    public Errors(List<String> error) {
+        this.error = error;
+    }
 
     /**
-     * Gets the value of the users property.
+     * Gets the value of the error property.
      *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the users property.
+     * This is why there is not a <CODE>set</CODE> method for the error property.
      *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getUsers().add(newItem);
+     *    getError().add(newItem);
      * </pre>
      *
      *
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link UserDto }
+     * {@link String }
      *
      *
      */
-    public List<UserDto> getUsers() {
-        if (users == null) {
-            users = new ArrayList<UserDto>();
+    public List<String> getError() {
+        if (error == null) {
+            error = new ArrayList<String>();
         }
-        return this.users;
+        return this.error;
     }
 
 }

@@ -6,7 +6,9 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
+
+import com.example.demosoap.model.User;
 
 import javax.xml.bind.annotation.*;
 
@@ -21,7 +23,7 @@ import javax.xml.bind.annotation.*;
  *   &lt;complexContent>
  *     &lt;restriction base="{<a href="http://www.w3.org/2001/XMLSchema">...</a>}anyType">
  *       &lt;sequence>
- *         &lt;element name="user" type="{http://exemple.com/demoSoap}user"/>
+ *         &lt;element name="user" type="{http://http://exemple.com/demoSoap}user"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,8 +36,8 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "", propOrder = {
         "user"
 })
-@XmlRootElement(name = "editUserRequest")
-public class EditUserRequest {
+@XmlRootElement(name = "getUserResponse")
+public class GetUserResponse {
 
     @XmlElement(required = true)
     protected User user;

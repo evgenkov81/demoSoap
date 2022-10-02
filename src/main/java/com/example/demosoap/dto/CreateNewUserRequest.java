@@ -6,7 +6,9 @@
 //
 
 
-package com.example.demosoap.model;
+package com.example.demosoap.dto;
+
+import com.example.demosoap.model.User;
 
 import javax.xml.bind.annotation.*;
 
@@ -21,7 +23,7 @@ import javax.xml.bind.annotation.*;
  *   &lt;complexContent>
  *     &lt;restriction base="{<a href="http://www.w3.org/2001/XMLSchema">...</a>}anyType">
  *       &lt;sequence>
- *         &lt;element name="user" type="{http://http://exemple.com/demoSoap}user"/>
+ *         &lt;element name="user" type="{http://exemple.com/demoSoap}user"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,35 +33,18 @@ import javax.xml.bind.annotation.*;
  *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-        "user"
-})
-@XmlRootElement(name = "getUserResponse")
-public class GetUserResponse {
+@XmlType(name = "", propOrder = { "user"})
+@XmlRootElement(name = "createNewUserRequest")
+public class CreateNewUserRequest {
 
     @XmlElement(required = true)
     protected User user;
 
-    /**
-     * Gets the value of the user property.
-     *
-     * @return
-     *     possible object is
-     *     {@link User }
-     *
-     */
     public User getUser() {
         return user;
     }
 
-    /**
-     * Sets the value of the user property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link User }
-     *
-     */
+
     public void setUser(User value) {
         this.user = value;
     }
